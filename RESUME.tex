@@ -1,0 +1,255 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{xcolor}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Color definitions
+\definecolor{primary}{RGB}{0, 102, 204}
+\definecolor{secondary}{RGB}{64, 64, 64}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{primary}\titlerule \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Kushagra Vardhan} \\ \vspace{1pt}
+    \small +91-8858955610 ~ \href{mailto:kushagravardhan619@gmail.com}{\underline{kushagravardhan619@gmail.com}} ~ 
+    \href{https://linkedin.com/in/kushagra-vardhan/}{\underline{linkedin.com/in/kushagra-vardhan}} ~
+    \href{https://github.com/Kushagra614}{\underline{github.com/kushagra614}}
+    \vspace{-8pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {VIT Bhopal University}{Bhopal, MP}
+      {Bachelor of Technology in Computer Science \& Engineering}{2022 -- 2026}
+      \resumeItemListStart
+        \resumeItem{CGPA: 8.48}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {GD Goenka Public School}{Lucknow, UP}
+      {Higher Secondary Education}{2020 -- 2022}
+      \resumeItemListStart
+        \resumeItem{Class XII: 92.2\% ~ Class X: 92.4\%}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+   \vspace{-15pt}
+
+%------TECHNICAL SKILLS-------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: C/C++, Python, SQL, JavaScript/TypeScript} \\
+     \vspace{3pt}
+     \textbf{Frameworks \& Libraries}{: Boost, libcurl, nlohmann/json, chrono, React.js, Next.js, OpenCV, YOLOv8, STL} \\
+     \vspace{3pt}
+     \textbf{Developer Tools}{: CMake, Make, Git, AWS, MySQL, PostgreSQL, Tailwind CSS, Vercel, Linux} \\
+     \vspace{3pt}
+     \textbf{Specializations}{: Low-Latency Systems, HFTs, Multi-threading, Algorithmic Trading, Computer Vision, Full-Stack Web Development}
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Developer Intern}{Dec 2024 -- Mar 2025}
+      {SRHFT}{Remote}
+        \resumeItemListStart
+        \resumeItem{Built a low-latency trading simulation infrastructure with Boost.Asio handling UDP multicast, TCP designed for 1,000+ events/sec supporting live market feeds, historical replay for strategy backtesting.}
+        \resumeItem{Engineered zero-copy IPC framework using Boost.Interprocess shared memory enabling sub-microsecond data synchronization across trading processes with minimal overhead from inter-process communication.}
+        \resumeItem{Implemented NSE Tick-by-Tick binary protocol decoder in C++ for order events, trades, and cancellations with proper struct alignment and timestamp normalization; processed datasets of 1M+ ticks with sub-microsecond message deserialization.}
+        \resumeItem{Optimized hot-path memory access with contiguous memory layouts reducing average tick processing latency by 25\% under sustained load; queried PostgreSQL to seed shared memory with historical tick data for backtesting.}
+
+      \resumeItemListEnd
+      
+  \resumeSubHeadingListEnd
+\vspace{-14pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+    
+      \resumeProjectHeading
+          {\textbf{CareerAI - AI Voice Career Counselor} $|$ \emph{Next.js, React, TypeScript, Tailwind CSS, Claude API} \textit{[In Development]}}{\href{https://github.com/Kushagra614/CareerMind}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Architected a full-stack web application delivering AI-powered voice-based career counseling to students in underserved regions, addressing \$5B+ career guidance market gap with accessible alternative to expensive counselors}
+            \resumeItem{Engineered responsive frontend with Next.js 14 (App Router) and React 18, implementing 6 interactive components (Hero page, Interview Flow, Voice Recorder, Live Transcript, Progress Tracker, Career Report) with Zustand state management}
+            \resumeItem{Integrated 3 external AI/voice APIs: Deepgram (speech-to-text), ElevenLabs (text-to-speech), Anthropic Claude (AI conversation \& career analysis) with production-grade service boilerplate and error handling}
+            \resumeItem{Designed interview flow: 10 strategic questions analyzing educational background, strengths, personality, motivation, and ambition to generate 3 personalized career recommendations with match scores and skill development paths}
+            \resumeItem{Built type-safe architecture with complete TypeScript coverage, comprehensive documentation (5 guides), ESLint configuration, and Vercel-ready deployment structure supporting scaling to 10K+ concurrent users}
+          \resumeItemListEnd
+          \vspace{-13pt}
+    
+      \resumeProjectHeading
+          {\textbf{HYPERTRADEX - Backtesting Engine} $|$ \emph{C++17, libcurl, CMake, Binance APIs}}{\href{https://github.com/Kushagra614/HyperTradeX}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Built ultra-low latency C++ backtesting engine using Binance market data achieving 5.8\(\mu\)s P99 latency on synthetic data, 120\(\mu\)s with live, profiling revealed network as primary bottleneck}
+            \resumeItem{Engineered metrics engine with microsecond-precision P99 tail latency tracking, win rate, max drawdown; expanding with technical indicators (SMA, EMA, RSI) and Sharpe ratio}
+            \resumeItem{Designed cache-efficient memory layout and deterministic (Strategy-Executor-Metrics) pipeline validated for scaling to live trading infrastructure}
+          \resumeItemListEnd
+          \vspace{-13pt}
+
+      \resumeProjectHeading
+          {\textbf{CareerAI - AI Voice Career Counselor} $|$ \emph{Next.js, React, TypeScript, Tailwind CSS, Claude API} $|$ \textit{In Development}}{\href{https://github.com/Kushagra614/CareerAI}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Architecting full-stack web application to democratize career guidance for students using AI-powered voice interviews and intelligent career recommendations}
+            \resumeItem{Building intelligent interview engine with 10 strategically designed questions, real-time voice transcription (Deepgram), AI-driven conversation (Claude), and personalized career recommendations}
+            \resumeItem{Implementing responsive frontend with Next.js 14, React 18, TypeScript, Tailwind CSS; state management with Zustand; voice processing with Web Audio API integration}
+            \resumeItem{Designing career matching algorithm to analyze user responses and generate 3 ranked career recommendations with match scores, reasoning, and skill development paths}
+          \resumeItemListEnd
+          \vspace{-13pt}
+
+      \resumeProjectHeading
+          {\textbf{MULTI-TYPE ORDERBOOK} $|$ \emph{C++20, STL, Multithreading, Financial Systems}}{\href{https://github.com/Kushagra614/Multi-Type-Orderbook}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Implemented financial orderbook supporting GTC, FAK, FOK, GFD, and Market Orders with deterministic price-time priority matching and real-time trade generation}
+            \resumeItem{Built core matching logic using ordered price levels (std::map) and FIFO order queues (std::list), handling insertion, cancellation, modification with thread-safe operations}
+            \resumeItem{Designed system with dedicated pruning thread for automatic expiration of Good For Day orders, demonstrating proficiency in concurrent systems and financial exchange mechanics}
+          \resumeItemListEnd
+          \vspace{-13pt}
+
+      \resumeProjectHeading
+          {\textbf{AUTO-PLATE RECOGNITION SYSTEM} $|$ \emph{Python, YOLOv8, EasyOCR, OpenCV}}{\href{https://github.com/Kushagra614/AutoPlate-Recognition}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Developed real-time vehicle and license plate recognition system using YOLOv8 + ByteTrack for multi-object tracking and EasyOCR for optical character recognition}
+            \resumeItem{Achieved 97.8\% detection accuracy with 24ms per frame processing latency in complex multi-vehicle scenarios through optimized computer vision pipelines}
+            \resumeItem{Architected modular system with JSON configuration, automated data preprocessing, and comprehensive logging for production scalability}
+          \resumeItemListEnd
+          
+    \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {A Multi-Task Deep Learning Analysis for Lung Cancer Detection}{Jan 2026}
+      {IEEE ICICNIS}{\href{https://lnkd.in/d9btzdQi}{\underline{Link}}}
+      \resumeItemListStart
+        \resumeItem{Co-authored comparative study of CNN architectures (ResNet, DenseNet, EfficientNet) for lung cancer classification and segmentation, identifying task-specific trade-offs for high-accuracy medical diagnostics}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------OPEN SOURCE CONTRIBUTIONS-----------
+\section{Open Source Contributions}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Hacktoberfest Contributor}{Oct 2024}
+      {Multiple Open Source Projects}{}
+      \resumeItemListStart
+        \resumeItem{Contributed to 4+ open source repositories with merged pull requests focusing on bug fixes, feature enhancements, and documentation improvements}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {GirlScript Summer of Code Participant}{May 2024 -- Aug 2024}
+      {GirlScript Foundation}{}
+      \resumeItemListStart
+        \resumeItem{Completed 2 major projects with 15+ commits and 8 merged pull requests demonstrating proficiency in collaborative development and version control}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------ACHIEVEMENTS & LEADERSHIP-----------
+\section{Achievements \& Leadership}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+         \textbf{Academic Excellence}{: SOF Mathematics Olympiad Gold Medalist, Consistent academic performance} \\
+     \vspace{3pt}
+     \textbf{Competitive Sports}{: State-level Tennis Player, State-level Skating Gold Medalist} \\
+     \vspace{3pt}
+     \textbf{Leadership}{: FinTech Club organizer, Technical event coordination and financial technology discussions} \\
+     \vspace{3pt}
+     \textbf{Creative Skills}{: Photography enthusiast specializing in wildlife, product, and street photography}
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+\end{document}
