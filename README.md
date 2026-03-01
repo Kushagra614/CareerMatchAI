@@ -318,3 +318,4 @@ Built with the mission to democratize career counseling for the next billion stu
 **Last Updated**: March 1, 2026  
 **Version**: 1.0.0 (In Progress)  
 **Status**: Active Development
+# CareerMatchAI
