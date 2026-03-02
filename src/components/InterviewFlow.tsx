@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useInterviewStore } from '@/store/interview';
 import { INTERVIEW_QUESTIONS } from '@/lib/questions';
+import { OllamaService } from '@/services/ollama';
 import VoiceRecorder from './VoiceRecorder';
 import CareerReport from './CareerReport';
 import TranscriptDisplay from './TranscriptDisplay';
@@ -11,6 +12,7 @@ import ProgressBar from './ProgressBar';
 export default function InterviewFlow() {
   const [showReport, setShowReport] = useState(false);
   const [reportData, setReportData] = useState<any>(null);
+  const [ollamaAvailable, setOllamaAvailable] = useState(true);
 
   const session = useInterviewStore((state) => state.session);
   const currentQuestionIndex = useInterviewStore((state) => state.currentQuestionIndex);
@@ -20,6 +22,16 @@ export default function InterviewFlow() {
 
   const currentQuestion = INTERVIEW_QUESTIONS[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === INTERVIEW_QUESTIONS.length - 1;
+
+  // Check Ollama availability on component mount
+  useEffect(() => {
+    const checkOllama = async () => {
+      const ollama = new OllamaService();
+      const isAvailable = await ollama.isServiceAvailable();
+      setOllamaAvailable(isAvailable);
+    };
+    checkOllama();
+  }, []);
 
   const handleQuestionAnswered = useCallback(async () => {
     if (isLastQuestion) {
@@ -34,32 +46,59 @@ export default function InterviewFlow() {
   }, [isLastQuestion, completeSession, moveToNextQuestion]);
 
   const generateCareerReport = async () => {
-    // This will be connected to the API endpoint
-    // For now, return a mock report
+    if (!session) {
+      throw new Error('No session found');
+    }
+
+    const ollama = new OllamaService();
+    
+    try {
+      // Try to use Ollama if available
+      if (ollamaAvailable) {
+        const report = await ollama.generateCareerReport(session.answers);
+        return report;
+      }
+    } catch (error) {
+      console.error('Error generating report with Ollama:', error);
+      console.log('Falling back to mock report');
+    }
+
+    // Fallback to mock report
     return {
+      sessionId: session.id,
+      userId: session.userId,
+      generatedAt: Date.now(),
       recommendations: [
         {
-          rank: 1,
+          rank: 1 as const,
           career: 'Software Development',
           matchScore: 92,
           reasoning: 'You are analytical, prefer independent work, and enjoy problem solving',
           skillsToLearn: ['Advanced Data Structures', 'System Design', 'Cloud Architecture'],
         },
         {
-          rank: 2,
+          rank: 2 as const,
           career: 'Data Analytics',
           matchScore: 85,
           reasoning: 'You are detail-oriented and drawn to patterns and logic',
           skillsToLearn: ['SQL', 'Python/R', 'Tableau/PowerBI'],
         },
         {
-          rank: 3,
+          rank: 3 as const,
           career: 'Consulting / Strategy',
           matchScore: 76,
           reasoning: 'You communicate well and thrive in variety',
           skillsToLearn: ['Business Acumen', 'Communication', 'Problem-solving frameworks'],
         },
       ],
+      userProfile: {
+        strengths: [],
+        workStyle: '',
+        personality: '',
+        motivations: [],
+        leadershipApetite: '',
+      },
+      rawAnswers: session.answers,
     };
   };
 
